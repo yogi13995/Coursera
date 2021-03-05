@@ -8,13 +8,15 @@
 */
 
 #include<stdio.h>
+#include<stdint.h>
 #include<string.h>
+#include"platform.h"
 
 /*
 * print_statistics  prints output of the othr different
 * functions used in the main() function.
 */
-void print_statistics(unsigned int median, unsigned int mean, unsigned char max, unsigned char min)
+void print_statistics(unsigned int  median, unsigned int mean, unsigned char max, unsigned char min)
 { 
 	PRINTF("minimum = %d\n",min);
 	PRINTF("maximum = %d\n",max);
@@ -27,8 +29,8 @@ void print_statistics(unsigned int median, unsigned int mean, unsigned char max,
 * print_array takes the length and data of array and print 
 * it.
 */
-#ifdef VERBESE
-void print_array(int len, unsigned char *a)
+
+void print_array(uint8_t *a, int len)
 {
 	PRINTF("Sorted array a[]= [");
 	for(int i=0;i<len;i++)
@@ -40,7 +42,7 @@ void print_array(int len, unsigned char *a)
 	PRINTF("]");
 }
 
-#endif
+
 
 /*
 * this function takes given array and find the median of 
@@ -138,7 +140,7 @@ return a;
 
 /*
 * main() function is the starting point of the codes in c 
-*/
+
 int main()
 {
 	unsigned char a[40] = {34,201,190,154,8,194,2,6,114,88,45,76,123,87,25,23,200,122,150,90,92,87,177,244,201,6,12,60,8,2,5,67,   7,87,250,230,99,3,100,90};
@@ -159,4 +161,5 @@ int main()
 	
 	
 }
+*/
 
