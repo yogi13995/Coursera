@@ -63,7 +63,7 @@ endif
 
 #Compiler flages 
 TARGET = c1m2
-CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM) $(ARMFLAGS)
+CFLAGS = -Wall -Werror -g -O0 -std=c99 -D$(PLATFORM)  -DVERBOSE  -D$(COURSE) $(ARMFLAGS)
 CPPFLAGS = -E
 MAIN = main
 
@@ -78,19 +78,18 @@ DEPS = $(SOURCES:.c=.d)
 #Had to use this because other than memory.* and main.* other files are not getting deleted.
 FILES = *.asm *.i *.o *.d
 
-%.o : %.c
-	$(CC) $(INCLUDES) -c $< $(CFLAGS) -o $@
-
-%.i : %.c
+%.o : src/%.c
+	$(CC) $(INCLUDES)  -c $< $(CFLAGS) -o $@
+%.i : src/%.c
 	$(CC) $(INCLUDES) $(CPPFLAGS) $< $(CFLAGS) -o $@
 
-%.asm : %.c
+%.asm : src/ %.c
 	$(CC) $(INCLUDES) -S $< $(CFLAGS) -o $@
 
 $(TARGET).asm : $(TARGET).out
 	$(OBJDUMP) -d $(TARGET).out >> $@
 
-%.d : %.c
+%.d : src/%.c
 	$(CC) $(INCLUDES) -M $< $(CFLAGS) -o $@
 
 .PHONY: compile-all

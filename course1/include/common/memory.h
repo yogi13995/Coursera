@@ -94,20 +94,40 @@ void set_all(char * ptr, char value, unsigned int size);
 void clear_all(char * ptr, unsigned int size);
 
 
-
+/*
+ *Takes two pointers of an array and the no of the data to be moved.
+ *move data from one location to another in the array.
+ *returns pointer to the destination.
+ *always takes care of the overlapping.
+*/
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+/*
+ *Takes two pointers of an array and the no of the data to be moved.
+ *copy data from one location to another in the array.
+ *returns pointer to the destination.
+ *Overlapping may currept the data..
+*/
 
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+/*
+*Takes pointer of a array elment and length of the data and set the location with given value*/
 
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
+/*
+*
+*Takes pointer of a array elment and length of the data and reset the location with given value*/
 
-
-uint8_t * my_memzero(uint8_t * src, size_t length);
-
-
+uint8_t * my_memzero(uint8_t * src, size_t length); 
+/*
+*Using pointer to array as input it replace all of the data to the opposite plac in that array.
+*/
 uint8_t * my_reverse(uint8_t * src, size_t length);
+/*
+theis functon simply arranges memory according to the input size using dynamic memory allocation.
+*/
 
 int32_t * reserve_words(size_t length);
+/* it is used to free the all dynamically allocated memory for the array*/
 
 
 void free_words(uint32_t * src);

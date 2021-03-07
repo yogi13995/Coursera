@@ -19,6 +19,9 @@ ifeq ($(PLATFORM),MSP432)
 else
 	SOURCES = main.c \
 		  memory.c\
+		  data.c\
+		  stats.c\
+		  course1.c\
 
 endif
 
@@ -30,7 +33,11 @@ ifeq ($(PLATFORM),MSP432)
 		   -I../
 
 else
-	INCLUDES = -I../include/common
+	INCLUDES = -I./include/common \
+		   -I./src \
 
 endif
+
+
+
 

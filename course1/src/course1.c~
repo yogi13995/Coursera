@@ -26,7 +26,7 @@
 
 int8_t test_data1() {
   uint8_t * ptr;
-  int32_t num = -3254;
+  int32_t num = -4096;
   uint32_t digits;
   int32_t value;
 
@@ -38,9 +38,9 @@ int8_t test_data1() {
     return TEST_ERROR;
   }
 
-  digits = my_itoa( num, ptr, BASE_10); 
+  digits = my_itoa( num, ptr, BASE_8); 
   //printf("%d",digits);  
-  value = my_atoi( ptr, digits, BASE_10);
+  value = my_atoi( ptr, digits, BASE_8);
  // printf("%d",value);
   #ifdef VERBOSE
   PRINTF("  Initial number: %d\n", num);
@@ -351,11 +351,11 @@ printf("%d",results[7]);
   {
     failed += results[i];
   }
-/*
+
   PRINTF("--------------------------------\n");
   PRINTF("Test Results:\n");
   PRINTF("  PASSED: %d / %d\n", (TESTCOUNT - failed), TESTCOUNT);
   PRINTF("  FAILED: %d / %d\n", failed, TESTCOUNT);
   PRINTF("--------------------------------\n");
-  */
+  
 }

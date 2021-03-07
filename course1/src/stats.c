@@ -29,7 +29,7 @@ void print_statistics(unsigned int  median, unsigned int mean, unsigned char max
 * print_array takes the length and data of array and print 
 * it.
 */
-
+#ifdef VERBOSE
 void print_array(uint8_t *a, int len)
 {
 	PRINTF("Sorted array a[]= [");
@@ -42,7 +42,7 @@ void print_array(uint8_t *a, int len)
 	PRINTF("]");
 }
 
-
+#endif
 
 /*
 * this function takes given array and find the median of 
